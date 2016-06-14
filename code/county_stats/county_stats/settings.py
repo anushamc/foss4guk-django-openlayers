@@ -81,6 +81,8 @@ USE_I18N = True
 
 USE_L10N = True
 
+DATE_INPUT_FORMATS = ('%d/%m/%Y')
+
 USE_TZ = True
 
 
@@ -93,3 +95,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'accidents','static'),
 )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'accidents','templates'),)

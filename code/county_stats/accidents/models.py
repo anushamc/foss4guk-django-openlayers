@@ -21,6 +21,7 @@ class County(models.Model):
 
     # GeoDjango-specific: a geometry field (MultiPolygonField)
     geom = models.MultiPolygonField(srid=27700)
+    objects = models.GeoManager()
 
 
 class Accident(models.Model):
@@ -36,3 +37,6 @@ class Accident(models.Model):
     date = models.DateField()
     day_of_week = models.IntegerField()
     time = models.TimeField()
+    # GeoDjango-specific: a geometry field (MultiPolygonField)
+    geom = models.MultiPolygonField(srid=27700, null=True)
+    objects = models.GeoManager()
