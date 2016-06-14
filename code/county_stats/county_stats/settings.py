@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,6 +47,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.gis',
+    'accidents',
+
 )
 
 ROOT_URLCONF = 'county_stats.urls'
@@ -58,9 +62,14 @@ WSGI_APPLICATION = 'county_stats.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    	'ENGINE': 'django.contrib.gis.db.backends.postgis',
+    	'NAME': 'accident_database',
+    	'USER': 'postgres',
+    	'PASSWORD': 'root',
+    	'HOST': 'localhost',
+    	'PORT': '5432',
+    },
+
 }
 
 # Internationalization
