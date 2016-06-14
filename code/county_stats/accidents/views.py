@@ -24,10 +24,6 @@ class AccidentsGeojson(View):
     	#get county from county name in request
     	county = County.objects.filter(name=request.GET.get('county')).first()
     	#if no geom fields exist, create them for accident
-    	#migrations would be better, but are more complex
-    	no_accident_exists = Accident.objects.filter(geom__isnull=False).exists()
-    	if no_accident_exists:
-    		Accident.objects.raw('UPDATE accidents_accident SET geom=ST_SIMPLIFY(ST_GeomFromText(\'POINT(\' || %s || \' \' || %s || \')\',27700);',[location_easting_osgr, location_northing_osgr])
     	#use within query to filter all points within the geometry
     	geojson = {}
     	if county:

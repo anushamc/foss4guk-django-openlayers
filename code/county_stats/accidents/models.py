@@ -38,5 +38,5 @@ class Accident(models.Model):
     day_of_week = models.IntegerField()
     time = models.TimeField()
     # GeoDjango-specific: a geometry field (MultiPolygonField)
-    geom = models.MultiPolygonField(srid=27700, null=True)
+    geom = models.PointField(srid=27700, null=True)
     objects = models.GeoManager()
