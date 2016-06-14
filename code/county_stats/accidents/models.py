@@ -21,3 +21,18 @@ class County(models.Model):
 
     # GeoDjango-specific: a geometry field (MultiPolygonField)
     geom = models.MultiPolygonField(srid=27700)
+
+
+class Accident(models.Model):
+    accident_index = models.CharField(max_length=20)
+    location_easting_osgr = models.IntegerField()
+    location_northing_osgr = models.IntegerField()
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    police_force = models.IntegerField()
+    accident_severity = models.IntegerField()
+    number_of_vehicles = models.IntegerField()
+    number_of_casualties = models.IntegerField()
+    date = models.DateField()
+    day_of_week = models.IntegerField()
+    time = models.TimeField()
