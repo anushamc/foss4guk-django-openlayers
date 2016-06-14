@@ -34,8 +34,10 @@
 
       map.addInteraction(select);
       select.on('select', function(e) {
-        accident.setSource({
+        accident = new ol.layer.Vector({
+          source: new ol.source.Vector({
           url: '/accidents/accidentsGeojson/?county='+e.target.getFeatures().getArray()[0].get('name').replace(' ','%20'),
           format: new ol.format.GeoJSON()
+        })
         });
       });
